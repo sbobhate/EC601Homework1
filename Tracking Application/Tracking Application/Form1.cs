@@ -23,5 +23,10 @@ namespace Tracking_Application
         {
             pictureBox1.Image = ImageFunctions.CurrentFrame.ToBitmap();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
