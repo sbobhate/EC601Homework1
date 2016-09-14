@@ -26,3 +26,20 @@ C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\D
 C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\ZedGraph.xml
 C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\zh-CN\Emgu.CV.UI.resources.dll
 C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\zh-CN\ZedGraph.resources.dll
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.exe.config
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.exe
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.pdb
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.exe
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.pdb
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\ZedGraph.dll
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.UI.pdb
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.UI.xml
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.World.pdb
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.World.xml
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\ZedGraph.xml
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\zh-CN\Emgu.CV.UI.resources.dll
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\zh-CN\ZedGraph.resources.dll
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.csprojResolveAssemblyReference.cache
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking_Application.mainForm.resources
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking_Application.Properties.Resources.resources
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.csproj.GenerateResource.Cache
