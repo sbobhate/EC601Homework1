@@ -15,6 +15,13 @@ namespace Tracking_Application
         public mainForm()
         {
             InitializeComponent();
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            ImageFunctions.initializeCamera();
+            Application.Idle += showImage;
+        }
+        private void showImage(object sender, EventArgs e)
+        {
+            pictureBox1.Image = ImageFunctions.CurrentFrame.ToBitmap();
         }
     }
 }

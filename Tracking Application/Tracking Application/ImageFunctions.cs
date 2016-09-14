@@ -18,7 +18,7 @@ namespace Tracking_Application
         private static Capture videoCapture;
         private static Image<Bgr, Byte> currentFrame;
 
-        private static Image<Bgr, Byte> CurrentFrame
+        public static Image<Bgr, Byte> CurrentFrame
         {
             get
             {
