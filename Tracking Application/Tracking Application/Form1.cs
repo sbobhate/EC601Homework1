@@ -15,12 +15,6 @@ namespace Tracking_Application
         public mainForm()
         {
             InitializeComponent();
-            label1.Text = "Hello World";
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            label1.Text = "It worked";
         }
     }
 }

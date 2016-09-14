@@ -7,3 +7,6 @@ C:\Users\Shantanu Bobhate\Documents\Tracking Application\Tracking Application\ob
 C:\Users\Shantanu Bobhate\Documents\Tracking Application\Tracking Application\obj\Debug\Tracking Application.csproj.GenerateResource.Cache
 C:\Users\Shantanu Bobhate\Documents\Tracking Application\Tracking Application\obj\Debug\Tracking Application.exe
 C:\Users\Shantanu Bobhate\Documents\Tracking Application\Tracking Application\obj\Debug\Tracking Application.pdb
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.exe.config
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.exe
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.pdb
