@@ -10,3 +10,19 @@ C:\Users\Shantanu Bobhate\Documents\Tracking Application\Tracking Application\ob
 C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.exe.config
 C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.exe
 C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.pdb
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.csprojResolveAssemblyReference.cache
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking_Application.mainForm.resources
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking_Application.Properties.Resources.resources
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.csproj.GenerateResource.Cache
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.exe
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.pdb
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.UI.dll
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.World.dll
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\ZedGraph.dll
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.UI.pdb
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.UI.xml
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.World.pdb
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.World.xml
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\ZedGraph.xml
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\zh-CN\Emgu.CV.UI.resources.dll
+C:\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\zh-CN\ZedGraph.resources.dll
