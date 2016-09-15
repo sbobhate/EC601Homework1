@@ -43,3 +43,20 @@ C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Appli
 C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking_Application.mainForm.resources
 C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking_Application.Properties.Resources.resources
 C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.csproj.GenerateResource.Cache
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.exe.config
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.exe
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.pdb
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.csprojResolveAssemblyReference.cache
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking_Application.mainForm.resources
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking_Application.Properties.Resources.resources
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.csproj.GenerateResource.Cache
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.exe
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.pdb
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\ZedGraph.dll
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.UI.pdb
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.UI.xml
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.World.pdb
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Emgu.CV.World.xml
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\ZedGraph.xml
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\zh-CN\Emgu.CV.UI.resources.dll
+C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\zh-CN\ZedGraph.resources.dll
