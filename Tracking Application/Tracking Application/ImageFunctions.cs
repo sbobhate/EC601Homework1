@@ -20,9 +20,12 @@ namespace Tracking_Application
         private static Image<Gray, Byte> outputFrame;
         private static int frameWidth = 0, frameHeight = 0;
 
-        private static int rThreshold = 50;
-        private static int bThreshold = 50;
-        private static int gThreshold = 50;
+        private static int hueLow = 0;
+        private static int saturationLow = 0;
+        private static int hsvValueLow = 0;
+        private static int hueHigh = 255;
+        private static int saturationHigh = 255;
+        private static int hsvValueHigh = 255;
 
         public static Image<Bgr, Byte> CurrentFrame
         {
@@ -35,43 +38,79 @@ namespace Tracking_Application
         {
             get
             {
-                Image<Bgr, Byte> frame = videoCapture.QueryFrame().ToImage<Bgr, Byte>();
-                Image<Bgr, Byte> thresholdImage = frame.ThresholdBinary(new Bgr(bThreshold, gThreshold, rThreshold), new Bgr(255, 255, 255));
-                outputFrame = thresholdImage.Convert<Gray, Byte>();
+                Image<Hsv, Byte> frame = videoCapture.QueryFrame().ToImage<Hsv, Byte>();
+                // Image<Hsv, Byte> thresholdImage = frame.ThresholdBinary(new Hsv((double)hueLow, (double)saturationLow, (double)hsvValueLow), new Hsv((double)hueHigh, (double)saturationHigh, (double)hsvValueHigh));
+                Image<Hsv, Byte> lowFrame = new Image<Hsv, Byte>(frameWidth, frameHeight, new Hsv((double)hueLow, (double)saturationLow, (double)hsvValueLow));
+                Image<Hsv, Byte> highFrame = new Image<Hsv, Byte>(frameWidth, frameHeight, new Hsv((double)hueHigh, (double)saturationHigh, (double)hsvValueHigh));
+                Image<Gray, Byte> thresholdImage = frame.InRange(lowFrame, highFrame);
+                outputFrame = thresholdImage;
                 return outputFrame;
             }
         }
-        public static int RThreshold
+        public static int HueLow
         {
             get
             {
-                return rThreshold;
+                return hueLow;
             }
             set
             {
-                rThreshold = value;
+                hueLow = value;
             }
         }
-        public static int BThreshold
+        public static int SaturationLow
         {
             get
             {
-                return bThreshold;
+                return saturationLow;
             }
             set
             {
-                bThreshold = value;
+                saturationLow = value;
             }
         }
-        public static int GThreshold
+        public static int HsvValueLow
         {
             get
             {
-                return gThreshold;
+                return hsvValueLow;
             }
             set
             {
-                gThreshold = value;
+                hsvValueLow = value;
+            }
+        }
+        public static int HueHigh
+        {
+            get
+            {
+                return hueHigh;
+            }
+            set
+            {
+                hueHigh = value;
+            }
+        }
+        public static int SaturationHigh
+        {
+            get
+            {
+                return saturationHigh;
+            }
+            set
+            {
+                saturationHigh = value;
+            }
+        }
+        public static int HsvValueHigh
+        {
+            get
+            {
+                return hsvValueHigh;
+            }
+            set
+            {
+                hsvValueHigh = value;
             }
         }
 
@@ -82,11 +121,6 @@ namespace Tracking_Application
             frameHeight = (int)videoCapture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
             currentFrame = new Image<Bgr, Byte>(frameWidth, frameHeight);
             outputFrame = new Image<Gray, Byte>(frameWidth, frameHeight);
-        }
-
-        public static void processFrame(object sender, EventArgs e)
-        {
-
         }
     }
 }
