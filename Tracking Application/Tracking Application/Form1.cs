@@ -26,101 +26,56 @@ namespace Tracking_Application
             pictureBox2.Image = ImageFunctions.OutputFrame.ToBitmap();
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        private void blueTrackBar_Scroll(object sender, EventArgs e)
         {
-            int red_threshold = trackBar1.Value;
-            label5.Text = red_threshold.ToString();
-            ImageFunctions.HueLow = red_threshold; 
+            ImageFunctions.BlueThreshold = blueTrackBar.Value;
+            blueLabel.Text = ImageFunctions.BlueThreshold.ToString();
         }
 
-        private void trackBar1_MouseDown(object sender, MouseEventArgs e)
+        private void blueTrackBar_MouseDown(object sender, MouseEventArgs e)
         {
-            double value = ((double)e.X / (double)trackBar1.Width) * (trackBar1.Maximum - trackBar1.Minimum);
-            trackBar1.Value = Convert.ToInt32(value);
-            int red_threshold = trackBar1.Value;
-            label5.Text = red_threshold.ToString();
-            ImageFunctions.HueLow = red_threshold;
-
+            double value = ((double)e.X / (double)blueTrackBar.Width) * (blueTrackBar.Maximum - blueTrackBar.Minimum);
+            blueTrackBar.Value = (int) value;
+            ImageFunctions.BlueThreshold = (int) value;
+            blueLabel.Text = ImageFunctions.BlueThreshold.ToString();
         }
 
-        private void trackBar2_MouseDown(object sender, MouseEventArgs e)
+        private void greenTrackBar_Scroll(object sender, EventArgs e)
         {
-            double value = ((double)e.X / (double)trackBar2.Width) * (trackBar2.Maximum - trackBar2.Minimum);
-            trackBar2.Value = Convert.ToInt32(value);
-            int green_threshold = trackBar2.Value;
-            label6.Text = green_threshold.ToString();
-            ImageFunctions.SaturationLow = green_threshold;
+            ImageFunctions.GreenThreshold = greenTrackBar.Value;
+            greenLabel.Text = ImageFunctions.GreenThreshold.ToString();
         }
 
-        private void trackBar2_Scroll(object sender, EventArgs e)
+        private void greenTrackBar_MouseDown(object sender, MouseEventArgs e)
         {
-            int green_threshold = trackBar2.Value;
-            label6.Text = green_threshold.ToString();
-            ImageFunctions.SaturationLow = green_threshold;
+            double value = ((double)e.X / (double)greenTrackBar.Width) * (greenTrackBar.Maximum - greenTrackBar.Minimum);
+            greenTrackBar.Value = (int)value;
+            ImageFunctions.GreenThreshold = (int)value;
+            greenLabel.Text = ImageFunctions.GreenThreshold.ToString();
         }
 
-        private void trackBar3_MouseDown(object sender, MouseEventArgs e)
+        private void redTrackBar_Scroll(object sender, EventArgs e)
         {
-            double value = ((double)e.X / (double)trackBar3.Width) * (trackBar3.Maximum - trackBar3.Minimum);
-            trackBar3.Value = Convert.ToInt32(value);
-            int blue_threshold = trackBar3.Value;
-            label7.Text = blue_threshold.ToString();
-            ImageFunctions.HsvValueLow = blue_threshold;
+            ImageFunctions.RedThreshold = redTrackBar.Value;
+            redLabel.Text = ImageFunctions.RedThreshold.ToString();
         }
 
-        private void trackBar3_Scroll(object sender, EventArgs e)
+        private void redTrackBar_MouseDown(object sender, MouseEventArgs e)
         {
-            int blue_threshold = trackBar3.Value;
-            label7.Text = blue_threshold.ToString();
-            ImageFunctions.HsvValueLow = blue_threshold;
+            double value = ((double)e.X / (double)redTrackBar.Width) * (redTrackBar.Maximum - redTrackBar.Minimum);
+            redTrackBar.Value = (int)value;
+            ImageFunctions.RedThreshold = (int)value;
+            redLabel.Text = ImageFunctions.RedThreshold.ToString();
         }
 
-        private void trackBar6_Scroll(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
-            int blue_threshold = trackBar6.Value;
-            label9.Text = blue_threshold.ToString();
-            ImageFunctions.HueHigh = blue_threshold;
-        }
-
-        private void trackBar5_Scroll(object sender, EventArgs e)
-        {
-            int blue_threshold = trackBar5.Value;
-            label10.Text = blue_threshold.ToString();
-            ImageFunctions.SaturationHigh = blue_threshold;
-        }
-
-        private void trackBar4_Scroll(object sender, EventArgs e)
-        {
-            int blue_threshold = trackBar4.Value;
-            label11.Text = blue_threshold.ToString();
-            ImageFunctions.HsvValueHigh = blue_threshold;
-        }
-
-        private void trackBar6_MouseDown(object sender, MouseEventArgs e)
-        {
-            double value = ((double)e.X / (double)trackBar6.Width) * (trackBar6.Maximum - trackBar6.Minimum);
-            trackBar6.Value = Convert.ToInt32(value);
-            int blue_threshold = trackBar6.Value;
-            label9.Text = blue_threshold.ToString();
-            ImageFunctions.HueHigh = blue_threshold;
-        }
-
-        private void trackBar5_MouseDown(object sender, MouseEventArgs e)
-        {
-            double value = ((double)e.X / (double)trackBar5.Width) * (trackBar5.Maximum - trackBar5.Minimum);
-            trackBar5.Value = Convert.ToInt32(value);
-            int blue_threshold = trackBar5.Value;
-            label10.Text = blue_threshold.ToString();
-            ImageFunctions.SaturationHigh = blue_threshold;
-        }
-
-        private void trackBar4_MouseDown(object sender, MouseEventArgs e)
-        {
-            double value = ((double)e.X / (double)trackBar4.Width) * (trackBar4.Maximum - trackBar4.Minimum);
-            trackBar4.Value = Convert.ToInt32(value);
-            int blue_threshold = trackBar4.Value;
-            label11.Text = blue_threshold.ToString();
-            ImageFunctions.HsvValueHigh = blue_threshold;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PNG|*.png";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ImageFunctions.saveImage(saveFileDialog.FileName + ".png");
+            }
         }
     }
 }

@@ -20,12 +20,10 @@ namespace Tracking_Application
         private static Image<Gray, Byte> outputFrame;
         private static int frameWidth = 0, frameHeight = 0;
 
-        private static int hueLow = 0;
-        private static int saturationLow = 0;
-        private static int hsvValueLow = 0;
-        private static int hueHigh = 255;
-        private static int saturationHigh = 255;
-        private static int hsvValueHigh = 255;
+        private static int blueThreshold = 0;
+        private static int redThreshold = 0;
+        private static int greenThreshold = 0;
+        private static int maxThreshold = 255;
 
         public static Image<Bgr, Byte> CurrentFrame
         {
@@ -38,79 +36,44 @@ namespace Tracking_Application
         {
             get
             {
-                Image<Hsv, Byte> frame = videoCapture.QueryFrame().ToImage<Hsv, Byte>();
-                // Image<Hsv, Byte> thresholdImage = frame.ThresholdBinary(new Hsv((double)hueLow, (double)saturationLow, (double)hsvValueLow), new Hsv((double)hueHigh, (double)saturationHigh, (double)hsvValueHigh));
-                Image<Hsv, Byte> lowFrame = new Image<Hsv, Byte>(frameWidth, frameHeight, new Hsv((double)hueLow, (double)saturationLow, (double)hsvValueLow));
-                Image<Hsv, Byte> highFrame = new Image<Hsv, Byte>(frameWidth, frameHeight, new Hsv((double)hueHigh, (double)saturationHigh, (double)hsvValueHigh));
-                Image<Gray, Byte> thresholdImage = frame.InRange(lowFrame, highFrame);
-                outputFrame = thresholdImage;
-                return outputFrame;
+                Image<Bgr, Byte> frame = videoCapture.QueryFrame().ToImage<Bgr, Byte>();
+                Image<Bgr, Byte> thresholdImage = frame.ThresholdBinary(new Bgr(blueThreshold, greenThreshold, redThreshold), new Bgr(maxThreshold, maxThreshold, maxThreshold));
+                Image<Gray, Byte> outputImage = thresholdImage.Convert<Gray, Byte>();
+                CvInvoke.Threshold(outputImage, outputImage, 100, 255, Emgu.CV.CvEnum.ThresholdType.Binary);
+                return outputImage;
             }
         }
-        public static int HueLow
+        public static int BlueThreshold
         {
             get
             {
-                return hueLow;
+                return blueThreshold;
             }
             set
             {
-                hueLow = value;
+                blueThreshold = value;
             }
         }
-        public static int SaturationLow
+        public static int GreenThreshold
         {
             get
             {
-                return saturationLow;
+                return greenThreshold;
             }
             set
             {
-                saturationLow = value;
+                greenThreshold = value;
             }
         }
-        public static int HsvValueLow
+        public static int RedThreshold
         {
             get
             {
-                return hsvValueLow;
+                return redThreshold;
             }
             set
             {
-                hsvValueLow = value;
-            }
-        }
-        public static int HueHigh
-        {
-            get
-            {
-                return hueHigh;
-            }
-            set
-            {
-                hueHigh = value;
-            }
-        }
-        public static int SaturationHigh
-        {
-            get
-            {
-                return saturationHigh;
-            }
-            set
-            {
-                saturationHigh = value;
-            }
-        }
-        public static int HsvValueHigh
-        {
-            get
-            {
-                return hsvValueHigh;
-            }
-            set
-            {
-                hsvValueHigh = value;
+                redThreshold = value;
             }
         }
 
@@ -121,6 +84,11 @@ namespace Tracking_Application
             frameHeight = (int)videoCapture.GetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight);
             currentFrame = new Image<Bgr, Byte>(frameWidth, frameHeight);
             outputFrame = new Image<Gray, Byte>(frameWidth, frameHeight);
+        }
+
+        public static void saveImage(string fileName)
+        {
+            OutputFrame.Save(fileName);
         }
     }
 }
