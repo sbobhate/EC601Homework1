@@ -20,9 +20,10 @@ namespace Tracking_Application
         private static Image<Gray, Byte> outputFrame;
         private static int frameWidth = 0, frameHeight = 0;
 
-        private static int rThreshold = 50;
-        private static int bThreshold = 50;
-        private static int gThreshold = 50;
+        private static int blueThreshold = 0;
+        private static int redThreshold = 0;
+        private static int greenThreshold = 0;
+        private static int maxThreshold = 255;
 
         public static Image<Bgr, Byte> CurrentFrame
         {
@@ -36,42 +37,43 @@ namespace Tracking_Application
             get
             {
                 Image<Bgr, Byte> frame = videoCapture.QueryFrame().ToImage<Bgr, Byte>();
-                Image<Bgr, Byte> thresholdImage = frame.ThresholdBinary(new Bgr(bThreshold, gThreshold, rThreshold), new Bgr(255, 255, 255));
-                outputFrame = thresholdImage.Convert<Gray, Byte>();
-                return outputFrame;
+                Image<Bgr, Byte> thresholdImage = frame.ThresholdBinary(new Bgr(blueThreshold, greenThreshold, redThreshold), new Bgr(maxThreshold, maxThreshold, maxThreshold));
+                Image<Gray, Byte> outputImage = thresholdImage.Convert<Gray, Byte>();
+                CvInvoke.Threshold(outputImage, outputImage, 100, 255, Emgu.CV.CvEnum.ThresholdType.Binary);
+                return outputImage;
             }
         }
-        public static int RThreshold
+        public static int BlueThreshold
         {
             get
             {
-                return rThreshold;
+                return blueThreshold;
             }
             set
             {
-                rThreshold = value;
+                blueThreshold = value;
             }
         }
-        public static int BThreshold
+        public static int GreenThreshold
         {
             get
             {
-                return bThreshold;
+                return greenThreshold;
             }
             set
             {
-                bThreshold = value;
+                greenThreshold = value;
             }
         }
-        public static int GThreshold
+        public static int RedThreshold
         {
             get
             {
-                return gThreshold;
+                return redThreshold;
             }
             set
             {
-                gThreshold = value;
+                redThreshold = value;
             }
         }
 
@@ -84,9 +86,9 @@ namespace Tracking_Application
             outputFrame = new Image<Gray, Byte>(frameWidth, frameHeight);
         }
 
-        public static void processFrame(object sender, EventArgs e)
+        public static void saveImage(string fileName)
         {
-
+            OutputFrame.Save(fileName);
         }
     }
 }
