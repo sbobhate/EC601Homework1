@@ -27,6 +27,9 @@ namespace Tracking_Application
         private static int saturationHigh = 255;
         private static int valueHigh = 255;
 
+        private static Image<Hsv, Byte> lowerThreshold;
+        private static Image<Hsv, Byte> higherThreshold;
+
         public static Image<Bgr, Byte> CurrentFrame
         {
             get
@@ -44,8 +47,8 @@ namespace Tracking_Application
                 Image<Hsv, Byte> filteredFrame = new Image<Hsv, Byte>(frameWidth, frameHeight);
                 CvInvoke.CvtColor(frame, filteredFrame, Emgu.CV.CvEnum.ColorConversion.Bgr2Hsv);
 
-                Image<Hsv, Byte> lowerThreshold = new Image<Hsv, Byte>(frameWidth, frameHeight, new Hsv(hueLow, saturationLow, valueLow));
-                Image<Hsv, Byte> higherThreshold = new Image<Hsv, Byte>(frameWidth, frameHeight, new Hsv(hueHigh, saturationHigh, valueHigh));
+                lowerThreshold = new Image<Hsv, Byte>(frameWidth, frameHeight, new Hsv(hueLow, saturationLow, valueLow));
+                higherThreshold = new Image<Hsv, Byte>(frameWidth, frameHeight, new Hsv(hueHigh, saturationHigh, valueHigh));
 
                 Image<Gray, Byte> binaryImage = new Image<Gray, Byte>(frameWidth, frameHeight);
                 CvInvoke.InRange(filteredFrame, lowerThreshold, higherThreshold, binaryImage);
@@ -149,6 +152,25 @@ namespace Tracking_Application
             set
             {
                 valueHigh = value;
+            }
+        }
+
+        public static Image<Bgr, Byte> LowerThresholdColor
+        {
+            get
+            {
+                Image<Bgr, Byte> result = new Image<Bgr, Byte>(frameWidth, frameHeight);
+                CvInvoke.CvtColor(lowerThreshold, result, Emgu.CV.CvEnum.ColorConversion.Hsv2Bgr);
+                return result;
+            }
+        }
+        public static Image<Bgr, Byte> HigherThresholdColor
+        {
+            get
+            {
+                Image<Bgr, Byte> result = new Image<Bgr, Byte>(frameWidth, frameHeight);
+                CvInvoke.CvtColor(higherThreshold, result, Emgu.CV.CvEnum.ColorConversion.Hsv2Bgr);
+                return result;
             }
         }
 

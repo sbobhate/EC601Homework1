@@ -50,6 +50,8 @@
             this.saturationHighTrackBar = new System.Windows.Forms.TrackBar();
             this.hueHighTrackBar = new System.Windows.Forms.TrackBar();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hueLowTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saturationLowTrackBar)).BeginInit();
@@ -59,6 +61,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.saturationHighTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hueHighTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -292,11 +296,31 @@
             this.pictureBox3.TabIndex = 23;
             this.pictureBox3.TabStop = false;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Location = new System.Drawing.Point(766, 304);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox4.TabIndex = 24;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox5.Location = new System.Drawing.Point(822, 304);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox5.TabIndex = 25;
+            this.pictureBox5.TabStop = false;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 401);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.valueHighLabel);
             this.Controls.Add(this.saturationHighLabel);
@@ -330,6 +354,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.saturationHighTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hueHighTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,6 +385,8 @@
         private System.Windows.Forms.TrackBar saturationHighTrackBar;
         private System.Windows.Forms.TrackBar hueHighTrackBar;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
 
