@@ -20,60 +20,157 @@ namespace Tracking_Application
         private static Image<Gray, Byte> outputFrame;
         private static int frameWidth = 0, frameHeight = 0;
 
-        private static int blueThreshold = 0;
-        private static int redThreshold = 0;
-        private static int greenThreshold = 0;
-        private static int maxThreshold = 255;
+        private static int hueLow = 0;
+        private static int saturationLow = 0;
+        private static int valueLow = 0;
+        private static int hueHigh = 179;
+        private static int saturationHigh = 255;
+        private static int valueHigh = 255;
+
+        private static Image<Hsv, Byte> lowerThreshold;
+        private static Image<Hsv, Byte> higherThreshold;
 
         public static Image<Bgr, Byte> CurrentFrame
         {
             get
             {
-                return videoCapture.QueryFrame().ToImage<Bgr, Byte>();
+                currentFrame = videoCapture.QueryFrame().ToImage<Bgr, Byte>();
+                return currentFrame;
             }
         }
-        public static Image<Gray, Byte> OutputFrame
+        public static Image<Gray, Byte> BinaryFrame
         {
             get
             {
                 Image<Bgr, Byte> frame = videoCapture.QueryFrame().ToImage<Bgr, Byte>();
-                Image<Bgr, Byte> thresholdImage = frame.ThresholdBinary(new Bgr(blueThreshold, greenThreshold, redThreshold), new Bgr(maxThreshold, maxThreshold, maxThreshold));
-                Image<Gray, Byte> outputImage = thresholdImage.Convert<Gray, Byte>();
-                CvInvoke.Threshold(outputImage, outputImage, 100, 255, Emgu.CV.CvEnum.ThresholdType.Binary);
-                return outputImage;
+                CvInvoke.GaussianBlur(frame, frame, new Size(3, 3), 0);
+                Image<Hsv, Byte> filteredFrame = new Image<Hsv, Byte>(frameWidth, frameHeight);
+                CvInvoke.CvtColor(frame, filteredFrame, Emgu.CV.CvEnum.ColorConversion.Bgr2Hsv);
+
+                lowerThreshold = new Image<Hsv, Byte>(frameWidth, frameHeight, new Hsv(hueLow, saturationLow, valueLow));
+                higherThreshold = new Image<Hsv, Byte>(frameWidth, frameHeight, new Hsv(hueHigh, saturationHigh, valueHigh));
+
+                Image<Gray, Byte> binaryImage = new Image<Gray, Byte>(frameWidth, frameHeight);
+                CvInvoke.InRange(filteredFrame, lowerThreshold, higherThreshold, binaryImage);
+
+                CvInvoke.Dilate(binaryImage, binaryImage, new Mat(), new Point(0, 0), 1, Emgu.CV.CvEnum.BorderType.Default, new MCvScalar());
+
+                Image<Gray, Byte> copyBinary = binaryImage.Clone();
+                VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
+                VectorOfPoint heir = new VectorOfPoint();
+                CvInvoke.FindContours(copyBinary, contours, null, Emgu.CV.CvEnum.RetrType.External, Emgu.CV.CvEnum.ChainApproxMethod.ChainApproxSimple, new Point(0,0));
+
+                if (contours.Size != 0)
+                {
+                    int idx = 0;
+                    double maxArea = 0;
+                    for (int ii = 0; ii < contours.Size; ++ii)
+                    {
+                        double area = CvInvoke.ContourArea(contours[ii]);
+                        if (area > maxArea)
+                        {
+                            maxArea = area;
+                            idx = ii;
+                        }
+                    }
+
+                    CvInvoke.DrawContours(currentFrame, contours, idx, new MCvScalar(0, 255, 0));
+                }
+
+                return binaryImage;
             }
         }
-        public static int BlueThreshold
+        public static Image<Bgr, Byte> OutputFrame
         {
             get
             {
-                return blueThreshold;
-            }
-            set
-            {
-                blueThreshold = value;
+                return currentFrame;
             }
         }
-        public static int GreenThreshold
+
+        public static int HueLow
         {
             get
             {
-                return greenThreshold;
+                return hueLow;
             }
             set
             {
-                greenThreshold = value;
+                hueLow = value;
             }
         }
-        public static int RedThreshold
+        public static int SaturationLow
         {
             get
             {
-                return redThreshold;
+                return saturationLow;
             }
             set
             {
-                redThreshold = value;
+                saturationLow = value;
+            }
+        }
+        public static int ValueLow
+        {
+            get
+            {
+                return valueLow;
+            }
+            set
+            {
+                valueLow = value;
+            }
+        }
+        public static int HueHigh
+        {
+            get
+            {
+                return hueHigh;
+            }
+            set
+            {
+                hueHigh = value;
+            }
+        }
+        public static int SaturationHigh
+        {
+            get
+            {
+                return saturationHigh;
+            }
+            set
+            {
+                saturationHigh = value;
+            }
+        }
+        public static int ValueHigh
+        {
+            get
+            {
+                return valueHigh;
+            }
+            set
+            {
+                valueHigh = value;
+            }
+        }
+
+        public static Image<Bgr, Byte> LowerThresholdColor
+        {
+            get
+            {
+                Image<Bgr, Byte> result = new Image<Bgr, Byte>(frameWidth, frameHeight);
+                CvInvoke.CvtColor(lowerThreshold, result, Emgu.CV.CvEnum.ColorConversion.Hsv2Bgr);
+                return result;
+            }
+        }
+        public static Image<Bgr, Byte> HigherThresholdColor
+        {
+            get
+            {
+                Image<Bgr, Byte> result = new Image<Bgr, Byte>(frameWidth, frameHeight);
+                CvInvoke.CvtColor(higherThreshold, result, Emgu.CV.CvEnum.ColorConversion.Hsv2Bgr);
+                return result;
             }
         }
 
@@ -88,7 +185,7 @@ namespace Tracking_Application
 
         public static void saveImage(string fileName)
         {
-            OutputFrame.Save(fileName);
+            currentFrame.Save(fileName);
         }
     }
 }
