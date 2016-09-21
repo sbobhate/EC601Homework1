@@ -29,6 +29,8 @@ namespace Tracking_Application
             pictureBox1.Image = ImageFunctions.CurrentFrame.ToBitmap();
             pictureBox2.Image = ImageFunctions.BinaryFrame.ToBitmap();
             pictureBox3.Image = ImageFunctions.OutputFrame.ToBitmap();
+            pictureBox4.Image = ImageFunctions.LowerThresholdColor.ToBitmap();
+            pictureBox5.Image = ImageFunctions.HigherThresholdColor.ToBitmap();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
