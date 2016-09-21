@@ -15,57 +15,20 @@ namespace Tracking_Application
         public mainForm()
         {
             InitializeComponent();
+
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+
             ImageFunctions.initializeCamera();
             Application.Idle += showImage;
         }
+
         private void showImage(object sender, EventArgs e)
         {
             pictureBox1.Image = ImageFunctions.CurrentFrame.ToBitmap();
-            pictureBox2.Image = ImageFunctions.OutputFrame.ToBitmap();
-        }
-
-        private void blueTrackBar_Scroll(object sender, EventArgs e)
-        {
-            ImageFunctions.BlueThreshold = blueTrackBar.Value;
-            blueLabel.Text = ImageFunctions.BlueThreshold.ToString();
-        }
-
-        private void blueTrackBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            double value = ((double)e.X / (double)blueTrackBar.Width) * (blueTrackBar.Maximum - blueTrackBar.Minimum);
-            blueTrackBar.Value = (int) value;
-            ImageFunctions.BlueThreshold = (int) value;
-            blueLabel.Text = ImageFunctions.BlueThreshold.ToString();
-        }
-
-        private void greenTrackBar_Scroll(object sender, EventArgs e)
-        {
-            ImageFunctions.GreenThreshold = greenTrackBar.Value;
-            greenLabel.Text = ImageFunctions.GreenThreshold.ToString();
-        }
-
-        private void greenTrackBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            double value = ((double)e.X / (double)greenTrackBar.Width) * (greenTrackBar.Maximum - greenTrackBar.Minimum);
-            greenTrackBar.Value = (int)value;
-            ImageFunctions.GreenThreshold = (int)value;
-            greenLabel.Text = ImageFunctions.GreenThreshold.ToString();
-        }
-
-        private void redTrackBar_Scroll(object sender, EventArgs e)
-        {
-            ImageFunctions.RedThreshold = redTrackBar.Value;
-            redLabel.Text = ImageFunctions.RedThreshold.ToString();
-        }
-
-        private void redTrackBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            double value = ((double)e.X / (double)redTrackBar.Width) * (redTrackBar.Maximum - redTrackBar.Minimum);
-            redTrackBar.Value = (int)value;
-            ImageFunctions.RedThreshold = (int)value;
-            redLabel.Text = ImageFunctions.RedThreshold.ToString();
+            pictureBox2.Image = ImageFunctions.BinaryFrame.ToBitmap();
+            pictureBox3.Image = ImageFunctions.OutputFrame.ToBitmap();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -76,6 +39,90 @@ namespace Tracking_Application
             {
                 ImageFunctions.saveImage(saveFileDialog.FileName + ".png");
             }
+        }
+
+        private void hueLowTrackBar_Scroll(object sender, EventArgs e)
+        {
+            ImageFunctions.HueLow = hueLowTrackBar.Value;
+            hueLowLabel.Text = ImageFunctions.HueLow.ToString();
+        }
+
+        private void hueLowTrackBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            double value = ((double)e.X / (double)hueLowTrackBar.Width) * (hueLowTrackBar.Maximum - hueLowTrackBar.Minimum);
+            hueLowTrackBar.Value = (int)value;
+            ImageFunctions.HueLow = (int)value;
+            hueLowLabel.Text = ImageFunctions.HueLow.ToString();
+        }
+
+        private void saturationLowTrackBar_Scroll(object sender, EventArgs e)
+        {
+            ImageFunctions.SaturationLow = saturationLowTrackBar.Value;
+            saturationLowLabel.Text = ImageFunctions.SaturationLow.ToString();
+        }
+
+        private void saturationLowTrackBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            double value = ((double)e.X / (double)saturationLowTrackBar.Width) * (saturationLowTrackBar.Maximum - saturationLowTrackBar.Minimum);
+            saturationLowTrackBar.Value = (int)value;
+            ImageFunctions.SaturationLow = (int)value;
+            saturationLowLabel.Text = ImageFunctions.SaturationLow.ToString();
+        }
+
+        private void valueLowTrackBar_Scroll(object sender, EventArgs e)
+        {
+            ImageFunctions.ValueLow = valueLowTrackBar.Value;
+            valueLowLabel.Text = ImageFunctions.ValueLow.ToString();
+        }
+
+        private void valueLowTrackBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            double value = ((double)e.X / (double)valueLowTrackBar.Width) * (valueLowTrackBar.Maximum - valueLowTrackBar.Minimum);
+            valueLowTrackBar.Value = (int)value;
+            ImageFunctions.ValueLow = (int)value;
+            valueLowLabel.Text = ImageFunctions.ValueLow.ToString();
+        }
+
+        private void hueHighTrackBar_Scroll(object sender, EventArgs e)
+        {
+            ImageFunctions.HueHigh = hueHighTrackBar.Value;
+            hueHighLabel.Text = ImageFunctions.HueHigh.ToString();
+        }
+
+        private void hueHighTrackBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            double value = ((double)e.X / (double)hueHighTrackBar.Width) * (hueHighTrackBar.Maximum - hueHighTrackBar.Minimum);
+            hueHighTrackBar.Value = (int)value;
+            ImageFunctions.HueHigh = (int)value;
+            hueHighLabel.Text = ImageFunctions.HueHigh.ToString();
+        }
+
+        private void saturationHighTrackBar_Scroll(object sender, EventArgs e)
+        {
+            ImageFunctions.SaturationHigh = saturationHighTrackBar.Value;
+            saturationHighLabel.Text = ImageFunctions.SaturationHigh.ToString();
+        }
+
+        private void saturationHighTrackBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            double value = ((double)e.X / (double)saturationHighTrackBar.Width) * (saturationHighTrackBar.Maximum - saturationHighTrackBar.Minimum);
+            saturationHighTrackBar.Value = (int)value;
+            ImageFunctions.SaturationHigh = (int)value;
+            saturationHighLabel.Text = ImageFunctions.SaturationHigh.ToString();
+        }
+
+        private void valueHighTrackbBar_Scroll(object sender, EventArgs e)
+        {
+            ImageFunctions.ValueHigh = valueHighTrackBar.Value;
+            valueHighLabel.Text = ImageFunctions.ValueHigh.ToString();
+        }
+
+        private void valueHighTrackbBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            double value = ((double)e.X / (double)valueHighTrackBar.Width) * (valueHighTrackBar.Maximum - valueHighTrackBar.Minimum);
+            valueHighTrackBar.Value = (int)value;
+            ImageFunctions.ValueHigh = (int)value;
+            valueHighLabel.Text = ImageFunctions.ValueHigh.ToString();
         }
     }
 }
