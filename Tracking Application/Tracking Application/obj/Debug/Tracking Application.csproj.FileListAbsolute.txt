@@ -60,3 +60,7 @@ C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking
 C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\ZedGraph.xml
 C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\zh-CN\Emgu.CV.UI.resources.dll
 C:\Shantanu-BU-Files\EC601 Homework\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\zh-CN\ZedGraph.resources.dll
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.exe.manifest
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\bin\Debug\Tracking Application.application
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.exe.manifest
+C:\Users\CUI\Documents\GitHub\EC601Homework1\Tracking Application\Tracking Application\obj\Debug\Tracking Application.application
