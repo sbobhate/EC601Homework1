@@ -1,2 +1,15 @@
 # EC601Homework1
-Contains files concerning the first homework.
+### Contributors: Shantanu Bobhate & Kexuan Cui
+
+# Description
+
+For this homework we created a simple application that uses _color-based segmentation_ in the _HSV_ color-space. One can change the upper and lower thresholds to extract a certain color. We highlight the contours of the detected object. We used an open-source c# wrapper for OpenCV called _EmguCV_. We used C# since it allowed us to create a windows form application. We also added functionality to save the result.
+
+# Installation
+
+The installation files folder contains a setup.exe. This can be used to install and run the application on a Windows machine without Visual Studio.
+
+# Images
+
+We have included a screenshot of the trello board.
+We have also included screenshots of the results of tracking a red, blue and green object.
